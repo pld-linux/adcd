@@ -3,11 +3,12 @@ Summary(pl):	Odtwarzacz p³yt CD dla Linuksa
 Name:		adcd
 Version:	0.4
 Release:	1
-License:	GPL
-Group:		-
+License:	GPL v2
+Group:		Applications/Sound
 Source0:	http://savannah.nongnu.org/download/adcd/%{name}-%{version}.tar.bz2
 # Source0-md5:	9e373050efdb19929cd477bb5ee22160
 URL:		http://www.nongnu.org/adcd/adcd.html
+BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,6 +44,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog COPYING INSTALL LEEME README
+%doc ChangeLog LEEME README
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
