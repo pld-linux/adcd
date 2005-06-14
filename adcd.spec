@@ -1,12 +1,12 @@
 Summary:	Text mode CD player for Linux
 Summary(pl):	Odtwarzacz p³yt CD dla Linuksa
 Name:		adcd
-Version:	0.4
+Version:	0.5
 Release:	1
 License:	GPL v2
 Group:		Applications/Sound
 Source0:	http://savannah.nongnu.org/download/adcd/%{name}-%{version}.tar.bz2
-# Source0-md5:	9e373050efdb19929cd477bb5ee22160
+# Source0-md5:	08ac487740bc84f74940d8d7e31c514f
 URL:		http://www.nongnu.org/adcd/adcd.html
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
