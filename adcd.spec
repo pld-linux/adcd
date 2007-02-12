@@ -1,5 +1,5 @@
 Summary:	Text mode CD player for Linux
-Summary(pl.UTF-8):   Odtwarzacz płyt CD dla Linuksa
+Summary(pl.UTF-8):	Odtwarzacz płyt CD dla Linuksa
 Name:		adcd
 Version:	0.7
 Release:	1
