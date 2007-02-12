@@ -1,5 +1,5 @@
 Summary:	Text mode CD player for Linux
-Summary(pl):	Odtwarzacz p³yt CD dla Linuksa
+Summary(pl.UTF-8):   Odtwarzacz pÅ‚yt CD dla Linuksa
 Name:		adcd
 Version:	0.7
 Release:	1
@@ -17,11 +17,11 @@ Adcd is a text mode CD player for Linux. It features all the functions
 expected in a compact disc player, including playing selected tracks,
 random playing, and continuous playing.
 
-%description -l pl
-Adcd jest dzia³aj±cym w trybie tekstowym odtwarzaczem p³yt CD dla
-Linuksa. Posiada wszystkie funkcje, jakich mo¿na siê spodziewaæ po
-odtwarzaczu p³yt kompaktowych, w³±czaj±c w to odtwarzanie wybranych
-b±d¼ losowych ¶cie¿ek czy ci±g³e odtwarzanie.
+%description -l pl.UTF-8
+Adcd jest dziaÅ‚ajÄ…cym w trybie tekstowym odtwarzaczem pÅ‚yt CD dla
+Linuksa. Posiada wszystkie funkcje, jakich moÅ¼na siÄ™ spodziewaÄ‡ po
+odtwarzaczu pÅ‚yt kompaktowych, wÅ‚Ä…czajÄ…c w to odtwarzanie wybranych
+bÄ…dÅº losowych Å›cieÅ¼ek czy ciÄ…gÅ‚e odtwarzanie.
 
 %prep
 %setup -q
