@@ -1,12 +1,12 @@
 Summary:	Text mode CD player for Linux
 Summary(pl.UTF-8):	Odtwarzacz płyt CD dla Linuksa
 Name:		adcd
-Version:	0.7
+Version:	0.9
 Release:	1
 License:	GPL v2
 Group:		Applications/Sound
 Source0:	http://savannah.nongnu.org/download/adcd/%{name}-%{version}.tar.bz2
-# Source0-md5:	4fd7ad73ed1ab6dd9bc2f33d9b55de00
+# Source0-md5:	3915678b9f9d0abbcfa35aff86335d25
 URL:		http://www.nongnu.org/adcd/adcd.html
 BuildRequires:	libstdc++-devel
 BuildRequires:	ncurses-devel
@@ -25,12 +25,16 @@ bądź losowych ścieżek czy ciągłe odtwarzanie.
 
 %prep
 %setup -q
+# fix ncurses.h path
+%{__sed} -i -e 's,ncurses.h,ncurses/ncurses.h,g' player.cc
+# add missing library
+%{__sed} -i -e '/^#include <vector>$/a#include <cstdlib>' main.cc
 
 %build
 # not autoconf-generated
 ./configure \
 	--prefix=%{_prefix}
-%{__make} \
+%{__make} 
 	CXX="%{__cxx}" \
 	CXXFLAGS="%{rpmcflags} -I/usr/include/ncurses" \
 	LDFLAGS="%{rpmldflags} -lncurses"
