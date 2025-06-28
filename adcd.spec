@@ -1,15 +1,17 @@
 Summary:	Text mode CD player for Linux
 Summary(pl.UTF-8):	Odtwarzacz płyt CD dla Linuksa
 Name:		adcd
-Version:	0.9
+Version:	1.10
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		Applications/Sound
-Source0:	http://savannah.nongnu.org/download/adcd/%{name}-%{version}.tar.bz2
-# Source0-md5:	3915678b9f9d0abbcfa35aff86335d25
+Source0:	http://download.savannah.gnu.org/releases/adcd/%{name}-%{version}.tar.lz
+# Source0-md5:	b8e7cb8416701b1ee536b50140e52600
 URL:		http://www.nongnu.org/adcd/adcd.html
-BuildRequires:	libstdc++-devel
-BuildRequires:	ncurses-devel
+BuildRequires:	libstdc++-devel >= 5:3.3
+BuildRequires:	lzip
+BuildRequires:	ncurses-devel >= 5
+BuildRequires:	tar >= 1:1.22
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -25,19 +27,17 @@ bądź losowych ścieżek czy ciągłe odtwarzanie.
 
 %prep
 %setup -q
-# fix ncurses.h path
-%{__sed} -i -e 's,ncurses.h,ncurses/ncurses.h,g' player.cc
-# add missing library
-%{__sed} -i -e '/^#include <vector>$/a#include <cstdlib>' main.cc
 
 %build
 # not autoconf-generated
 ./configure \
-	--prefix=%{_prefix}
-%{__make} 
 	CXX="%{__cxx}" \
-	CXXFLAGS="%{rpmcflags} -I/usr/include/ncurses" \
-	LDFLAGS="%{rpmldflags} -lncurses"
+	CPPFLAGS="%{rpmcppflags} -I/usr/include/ncurses" \
+	CXXFLAGS="%{rpmcxxflags}" \
+	LDFLAGS="%{rpmldflags}" \
+	--prefix=%{_prefix}
+
+%{__make} 
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -51,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog README
+%doc AUTHORS ChangeLog NEWS README
 %lang(es) %doc LEEME
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%attr(755,root,root) %{_bindir}/adcd
+%{_mandir}/man1/adcd.1*
